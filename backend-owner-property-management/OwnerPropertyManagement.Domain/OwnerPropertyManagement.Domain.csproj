@@ -6,7 +6,10 @@
 
   <ItemGroup>
     <Folder Include="IServices\" />
-    <Folder Include="Mapper\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
