@@ -9,8 +9,9 @@ namespace OwnerPropertyManagement.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Town> builder)
         {
-            builder.ToTable("Zone");
+            builder.ToTable("Town");
             builder.Property(p => p.Description).HasMaxLength(50);
+            builder.HasOne(ho => ho.Zone).WithMany(wm => wm.Towns).HasForeignKey(fk => fk.ZoneId);
         }
     }
 }

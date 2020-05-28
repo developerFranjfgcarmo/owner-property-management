@@ -9,6 +9,8 @@ namespace OwnerPropertyManagement.Data.Configurations
         public void Configure(EntityTypeBuilder<PropertyFacility> builder)
         {
             builder.ToTable("PropertyFacility");
+            builder.HasOne(ho => ho.Property).WithMany(wm => wm.PropertyFacilities).HasForeignKey(fk => fk.PropertyId);
+            builder.HasOne(ho => ho.Facility).WithMany(wm => wm.PropertyFacilities).HasForeignKey(fk => fk.FacilityId);
         }
     }
 }

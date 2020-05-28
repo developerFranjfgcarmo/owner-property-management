@@ -12,6 +12,10 @@ namespace OwnerPropertyManagement.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ConfigurationBuilder();
+            modelBuilder.SeedZoneTown();
+            modelBuilder.SeedTypesFacility();
+            modelBuilder.SeedFacility();
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<Facility> Facilities { get; set; }

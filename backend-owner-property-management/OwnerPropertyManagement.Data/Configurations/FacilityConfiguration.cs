@@ -10,6 +10,7 @@ namespace OwnerPropertyManagement.Data.Configurations
         {
             builder.ToTable("Facility");
             builder.Property(p => p.Description).HasMaxLength(50);
+            builder.HasOne(ho => ho.TypesFacility).WithMany(wm => wm.Facilities).HasForeignKey(fk => fk.TypeFacilityId);
         }
     }
 }

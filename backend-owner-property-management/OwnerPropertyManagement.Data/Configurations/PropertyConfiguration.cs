@@ -13,6 +13,7 @@ namespace OwnerPropertyManagement.Data.Configurations
             builder.Property(p => p.Description).HasMaxLength(2000);
             builder.Property(p => p.LocalLeisure).HasMaxLength(250);
             builder.Property(p => p.LocalActivities).HasMaxLength(250);
+            builder.HasOne(ho => ho.Owner).WithMany(wm => wm.Properties).HasForeignKey(fk => fk.OwnerId);
         }
     }
 }
