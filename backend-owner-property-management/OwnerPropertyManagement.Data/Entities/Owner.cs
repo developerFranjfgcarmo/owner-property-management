@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace OwnerPropertyManagement.Data.Entities
 {
-    public class Owner
+    public class Owner: Auditable
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -17,5 +15,8 @@ namespace OwnerPropertyManagement.Data.Entities
         public string City { get; set; }
         public string Country { get; set; }
         public string AboutMe { get; set; }
+        public bool Active { get; set; }
+        public bool IsDeleted { get; set; }
+        public virtual ICollection<Property> Properties { get; set; }
     }
 }
