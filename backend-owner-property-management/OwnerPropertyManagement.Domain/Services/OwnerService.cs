@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using OwnerPropertyManagement.Data.Context;
@@ -48,6 +49,12 @@ namespace OwnerPropertyManagement.Domain.Services
         {
             var owner = await GetEntityByIdAsync(id);
             return owner.MapTo<OwnerDto>();
+        }
+
+        public async Task<IEnumerable<SimpleDto>> GetAllNameOwners()
+        {
+            return await OwnerPropertyDbContext.Owners.AsNoTracking()
+                .Select(s => new SimpleDto {Id = s.Id, Name = $"{s.FirstName} {s.Surname}"}).ToListAsync();
         }
 
         private async Task<Owner> GetEntityByIdAsync(int id)
