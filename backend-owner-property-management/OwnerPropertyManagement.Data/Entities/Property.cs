@@ -22,6 +22,8 @@ namespace OwnerPropertyManagement.Data.Entities
         public string LocalLeisure { get; set; }
         public string LocalActivities { get; set; }
         public int OwnerId { get; set; }
+        public int TownId { get; set; }
+        public virtual Town Town { get; set; }
         public virtual Owner Owner { get; set; }
         public virtual ICollection<PropertyFacility> PropertyFacilities { get; set; }
 
