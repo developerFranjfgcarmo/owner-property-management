@@ -1,4 +1,6 @@
-﻿namespace OwnerPropertyManagement.Domain.Dtos
+﻿using System.Collections.Generic;
+
+namespace OwnerPropertyManagement.Domain.Dtos
 {
     public class PropertyDto:AuditableDto
     {
@@ -20,7 +22,7 @@
         public string LocalLeisure { get; set; }
         public string LocalActivities { get; set; }
         public int OwnerId { get; set; }
-
+        public List<int> Facilities { get; set; }
 
     }
 }
