@@ -12,6 +12,8 @@ namespace OwnerPropertyManagement.Domain.Mapper
     {
         public DtoMapper()
         {
+            CreateMap<Facility, SimpleDto>().ForMember(f => f.Name, map => map.MapFrom(mf => mf.Description));
+            CreateMap<Town, SimpleDto>().ForMember(f => f.Name, map => map.MapFrom(mf => mf.Description));
             CreateMap<OwnerDto, Owner>();
             CreateMap<Owner, OwnerDto>();
             CreateMap<Property, PropertyDto>()

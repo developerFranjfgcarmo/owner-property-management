@@ -21,6 +21,7 @@ namespace OwnerPropertyManagement.Api.Extensions
             services.AddScoped<IOwnerPropertyDbContext, OwnerPropertyDbContext>();
             services.AddScoped<IOwnerDomain, OwnerDomain>();
             services.AddScoped<IPropertyDomain, PropertyDomain>();
+            services.AddScoped<IMasterTablesDomain, MasterTablesDomain>();
             return services;
         }
     }

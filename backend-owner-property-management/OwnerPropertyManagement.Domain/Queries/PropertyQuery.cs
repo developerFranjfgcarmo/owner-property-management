@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OwnerPropertyManagement.Domain.Queries
+﻿namespace OwnerPropertyManagement.Domain.Queries
 {
     public static class PropertyQuery
     {
