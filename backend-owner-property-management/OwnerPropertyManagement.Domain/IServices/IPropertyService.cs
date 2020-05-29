@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using OwnerPropertyManagement.Domain.Dtos;
+using OwnerPropertyManagement.Domain.Dtos.Filter;
 
 namespace OwnerPropertyManagement.Domain.IServices
 {
@@ -9,7 +10,7 @@ namespace OwnerPropertyManagement.Domain.IServices
         Task<PropertyDto> AddAsync(PropertyDto property);
         Task<PropertyDto> UpdateAsync(PropertyDto property);
         Task<bool> DeleteAsync(int id);
-        Task<IEnumerable<PropertyDto>> GetAllAsync(int? ownerId);
+        Task<PagedCollection<PropertyListDto>> GetAllAsync(PropertyFilter propertyFilter);
         Task<PropertyDto> GetByIdAsync(int id);
     }
 }
