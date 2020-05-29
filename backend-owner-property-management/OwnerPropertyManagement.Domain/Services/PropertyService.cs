@@ -63,11 +63,10 @@ namespace OwnerPropertyManagement.Domain.Services
             }
 
             var query = string.Format(PropertyQuery.GetAll, where);
-            await OwnerPropertyDbContext.Database.GetDbConnection().QueryMultipleAsync(query);
             var result = new PagedCollection<PropertyListDto>();
             using var reader = await OwnerPropertyDbContext.Database.GetDbConnection().QueryMultipleAsync(query, propertyFilter);
             result.Items = (await reader.ReadAsync<PropertyListDto>()).ToList();
-            result.Total = (await reader.ReadAsync<int>()).FirstOrDefault();
+            result.Total = (await reader.ReadAsync<long>()).FirstOrDefault();
             return result;
         }
 
