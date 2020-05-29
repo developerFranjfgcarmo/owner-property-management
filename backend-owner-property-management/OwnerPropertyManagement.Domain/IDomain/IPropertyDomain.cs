@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using OwnerPropertyManagement.Domain.Dtos;
 using OwnerPropertyManagement.Domain.Dtos.Filter;
 
-namespace OwnerPropertyManagement.Domain.IServices
+namespace OwnerPropertyManagement.Domain.IDomain
 {
-    public interface IPropertyService
+    public interface IPropertyDomain
     {
         Task<PropertyDto> AddAsync(PropertyDto property);
         Task<PropertyDto> UpdateAsync(PropertyDto property);

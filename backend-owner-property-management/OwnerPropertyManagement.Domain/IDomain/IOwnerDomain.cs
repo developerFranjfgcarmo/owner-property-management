@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using OwnerPropertyManagement.Domain.Dtos;
 
-namespace OwnerPropertyManagement.Domain.IServices
+namespace OwnerPropertyManagement.Domain.IDomain
 {
-    public interface IOwnerService
+    public interface IOwnerDomain
     {
         Task<OwnerDto> AddAsync(OwnerDto owner);
         Task<OwnerDto> UpdateAsync(OwnerDto owner);

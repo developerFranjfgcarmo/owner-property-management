@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore;
 using OwnerPropertyManagement.Data.Context;
 using OwnerPropertyManagement.Data.Entities;
 using OwnerPropertyManagement.Domain.Dtos;
-using OwnerPropertyManagement.Domain.IServices;
+using OwnerPropertyManagement.Domain.IDomain;
 using OwnerPropertyManagement.Domain.Mapper;
 
-namespace OwnerPropertyManagement.Domain.Services
+namespace OwnerPropertyManagement.Domain.Domain
 {
-    public class OwnerService : ServiceBase, IOwnerService
+    public class OwnerDomain : DomainBase, IOwnerDomain
     {
-        public OwnerService(IOwnerPropertyDbContext ownerPropertyDbContext) : base(ownerPropertyDbContext)
+        public OwnerDomain(IOwnerPropertyDbContext ownerPropertyDbContext) : base(ownerPropertyDbContext)
         {
         }
 

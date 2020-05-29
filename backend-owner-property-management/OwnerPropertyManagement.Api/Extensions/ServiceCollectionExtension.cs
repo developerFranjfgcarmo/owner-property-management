@@ -2,8 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OwnerPropertyManagement.Data.Context;
-using OwnerPropertyManagement.Domain.IServices;
-using OwnerPropertyManagement.Domain.Services;
+using OwnerPropertyManagement.Domain.Domain;
+using OwnerPropertyManagement.Domain.IDomain;
 
 namespace OwnerPropertyManagement.Api.Extensions
 {
@@ -19,8 +19,8 @@ namespace OwnerPropertyManagement.Api.Extensions
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IOwnerPropertyDbContext, OwnerPropertyDbContext>();
-            services.AddScoped<IOwnerService, OwnerService>();
-            services.AddScoped<IPropertyService, PropertyService>();
+            services.AddScoped<IOwnerDomain, OwnerDomain>();
+            services.AddScoped<IPropertyDomain, PropertyDomain>();
             return services;
         }
     }

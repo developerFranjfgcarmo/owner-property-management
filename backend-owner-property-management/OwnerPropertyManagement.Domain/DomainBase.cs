@@ -4,9 +4,9 @@ using OwnerPropertyManagement.Data.Context;
 
 namespace OwnerPropertyManagement.Domain
 {
-    public class ServiceBase : IDisposable
+    public class DomainBase : IDisposable
     {
-        public ServiceBase(IOwnerPropertyDbContext ownerPropertyDbContext)
+        public DomainBase(IOwnerPropertyDbContext ownerPropertyDbContext)
         {
             OwnerPropertyDbContext = ownerPropertyDbContext;
         }
@@ -23,7 +23,7 @@ namespace OwnerPropertyManagement.Domain
         }
 
         #region [Disposable]
-        ~ServiceBase()
+        ~DomainBase()
         {
             Dispose(false);
         }

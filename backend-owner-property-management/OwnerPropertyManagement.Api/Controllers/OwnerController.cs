@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OwnerPropertyManagement.Domain.Dtos;
-using OwnerPropertyManagement.Domain.IServices;
+using OwnerPropertyManagement.Domain.IDomain;
 
 namespace OwnerPropertyManagement.Api.Controllers
 {
@@ -10,31 +10,31 @@ namespace OwnerPropertyManagement.Api.Controllers
     [ApiController]
     public class OwnerController : ControllerBase
     {
-        private readonly IOwnerService _ownerService;
+        private readonly IOwnerDomain _ownerDomain;
 
-        public OwnerController(IOwnerService ownerService)
+        public OwnerController(IOwnerDomain ownerDomain)
         {
-            _ownerService = ownerService;
+            _ownerDomain = ownerDomain;
         }
 
         [HttpPost]
         public async Task<IActionResult> AddAsync(OwnerDto owner)
         {
-            var result = await _ownerService.AddAsync(owner);
+            var result = await _ownerDomain.AddAsync(owner);
             return result != null ? (IActionResult) Ok() : Conflict();
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateAsync(OwnerDto owner)
         {
-            var result = await _ownerService.UpdateAsync(owner);
+            var result = await _ownerDomain.UpdateAsync(owner);
             return result != null ? (IActionResult) Ok(result) : Conflict();
         }
 
         [HttpGet]
         public async Task<IActionResult> GetListAsync()
         {
-            var result = await _ownerService.GetAllAsync();
+            var result = await _ownerDomain.GetAllAsync();
             return result.Any() ? (IActionResult) Ok(result) : NotFound();
         }
 
@@ -42,7 +42,7 @@ namespace OwnerPropertyManagement.Api.Controllers
         [Route("{id}")]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
-            var result = await _ownerService.GetByIdAsync(id);
+            var result = await _ownerDomain.GetByIdAsync(id);
             return result != null ? (IActionResult) Ok(result) : NotFound();
         }
 
@@ -50,7 +50,7 @@ namespace OwnerPropertyManagement.Api.Controllers
         [Route("owner-name-list")]
         public async Task<IActionResult> OwnerNameListAsync(int id)
         {
-            var result = await _ownerService.OwnerNameListAsync();
+            var result = await _ownerDomain.OwnerNameListAsync();
             return result != null ? (IActionResult) Ok(result) : NotFound();
         }
 
@@ -58,7 +58,7 @@ namespace OwnerPropertyManagement.Api.Controllers
         [Route("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
-            var result = await _ownerService.DeleteAsync(id);
+            var result = await _ownerDomain.DeleteAsync(id);
             return result ? (IActionResult) Ok(true) : NotFound();
         }
     }

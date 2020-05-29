@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
@@ -9,15 +7,15 @@ using OwnerPropertyManagement.Data.Context;
 using OwnerPropertyManagement.Data.Entities;
 using OwnerPropertyManagement.Domain.Dtos;
 using OwnerPropertyManagement.Domain.Dtos.Filter;
-using OwnerPropertyManagement.Domain.IServices;
+using OwnerPropertyManagement.Domain.IDomain;
 using OwnerPropertyManagement.Domain.Mapper;
 using OwnerPropertyManagement.Domain.Queries;
 
-namespace OwnerPropertyManagement.Domain.Services
+namespace OwnerPropertyManagement.Domain.Domain
 {
-    public class PropertyService: ServiceBase, IPropertyService
+    public class PropertyDomain: DomainBase, IPropertyDomain
     {
-        public PropertyService(IOwnerPropertyDbContext ownerPropertyDbContext) : base(ownerPropertyDbContext)
+        public PropertyDomain(IOwnerPropertyDbContext ownerPropertyDbContext) : base(ownerPropertyDbContext)
         {
         }
         public async Task<PropertyDto> AddAsync(PropertyDto property)
