@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnerPropertyManagement.Api", "OwnerPropertyManagement.Api\OwnerPropertyManagement.Api.csproj", "{F1FF4A4A-374F-44D8-A974-4A5C1FDA0AF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OwnerPropertyManagement.Api", "OwnerPropertyManagement.Api\OwnerPropertyManagement.Api.csproj", "{F1FF4A4A-374F-44D8-A974-4A5C1FDA0AF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnerPropertyManagement.Data", "OwnerPropertyManagement.Data\OwnerPropertyManagement.Data.csproj", "{8C625842-78C0-43F8-8DB4-35600163FFB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OwnerPropertyManagement.Data", "OwnerPropertyManagement.Data\OwnerPropertyManagement.Data.csproj", "{8C625842-78C0-43F8-8DB4-35600163FFB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnerPropertyManagement.Domain", "OwnerPropertyManagement.Domain\OwnerPropertyManagement.Domain.csproj", "{303F4372-6B65-4718-ABC0-ACF932F56859}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OwnerPropertyManagement.Domain", "OwnerPropertyManagement.Domain\OwnerPropertyManagement.Domain.csproj", "{303F4372-6B65-4718-ABC0-ACF932F56859}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnerPropertyManagement.Test", "OwnerPropertyManagement.Test\OwnerPropertyManagement.Test.csproj", "{0754D029-76A8-43CB-A5CA-139B05C44CA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnerPropertyManagement.Test", "OwnerPropertyManagement.Test\OwnerPropertyManagement.Test.csproj", "{82F7CF2E-D356-4E29-A471-22AE8529A2FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{303F4372-6B65-4718-ABC0-ACF932F56859}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{303F4372-6B65-4718-ABC0-ACF932F56859}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{303F4372-6B65-4718-ABC0-ACF932F56859}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0754D029-76A8-43CB-A5CA-139B05C44CA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0754D029-76A8-43CB-A5CA-139B05C44CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0754D029-76A8-43CB-A5CA-139B05C44CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0754D029-76A8-43CB-A5CA-139B05C44CA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82F7CF2E-D356-4E29-A471-22AE8529A2FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F7CF2E-D356-4E29-A471-22AE8529A2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82F7CF2E-D356-4E29-A471-22AE8529A2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F7CF2E-D356-4E29-A471-22AE8529A2FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
