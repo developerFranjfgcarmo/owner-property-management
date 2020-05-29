@@ -11,6 +11,6 @@ namespace OwnerPropertyManagement.Domain.IServices
         Task<bool> DeleteAsync(int id);
         Task<IEnumerable<OwnerDto>> GetAllAsync();
         Task<OwnerDto> GetByIdAsync(int id);
-        Task<IEnumerable<SimpleDto>> GetAllNameOwners();
+        Task<IEnumerable<SimpleDto>> OwnerNameListAsync();
     }
 }

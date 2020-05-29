@@ -51,7 +51,7 @@ namespace OwnerPropertyManagement.Domain.Services
             return owner.MapTo<OwnerDto>();
         }
 
-        public async Task<IEnumerable<SimpleDto>> GetAllNameOwners()
+        public async Task<IEnumerable<SimpleDto>> OwnerNameListAsync()
         {
             return await OwnerPropertyDbContext.Owners.AsNoTracking()
                 .Select(s => new SimpleDto {Id = s.Id, Name = $"{s.FirstName} {s.Surname}"}).ToListAsync();
