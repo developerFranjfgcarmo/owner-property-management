@@ -1,36 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using OwnerPropertyManagement.Data.Context;
+using OwnerPropertyManagement.Data.Entities;
 using OwnerPropertyManagement.Domain.Dtos;
 using OwnerPropertyManagement.Domain.IServices;
+using OwnerPropertyManagement.Domain.Mapper;
 
 namespace OwnerPropertyManagement.Domain.Services
 {
-    public class OwnerService: IOwnerService
+    public class OwnerService : ServiceBase, IOwnerService
     {
-        public Task<OwnerDto> AddAsync(OwnerDto property)
+        public OwnerService(IOwnerPropertyDbContext ownerPropertyDbContext) : base(ownerPropertyDbContext)
         {
-            throw new NotImplementedException();
         }
 
-        public Task<OwnerDto> UpdateAsync(OwnerDto property)
+        public async Task<OwnerDto> AddAsync(OwnerDto owner)
         {
-            throw new NotImplementedException();
+            var entity = await OwnerPropertyDbContext.Owners.AddAsync(owner.MapTo<Owner>());
+            await SaveChangesAsync();
+            return entity.Entity.MapTo<OwnerDto>();
         }
 
-        public Task<bool> DeleteAsync(OwnerDto property)
+        public async Task<OwnerDto> UpdateAsync(OwnerDto owner)
         {
-            throw new NotImplementedException();
+            var currentOwner = await GetEntityByIdAsync(owner.Id);
+            var newOwner = owner.MapTo<OwnerDto>();
+            OwnerPropertyDbContext.Entry(currentOwner).CurrentValues.SetValues(newOwner);
+            await SaveChangesAsync();
+            return newOwner.MapTo<OwnerDto>();
         }
 
-        public Task<OwnerDto> GetPropertiesByOIdAsync(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var owner = await GetEntityByIdAsync(id);
+            owner.IsDeleted = true;
+            return await SaveChangesAsync();
         }
 
-        public Task<IEnumerable<OwnerDto>> GetAllAsync(int id)
+        public async Task<IEnumerable<OwnerDto>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var result =await OwnerPropertyDbContext.Owners.AsNoTracking().ToListAsync();
+            return result.MapTo<IEnumerable<OwnerDto>>();
+        }
+
+        public async Task<OwnerDto> GetByIdAsync(int id)
+        {
+            var owner = await GetEntityByIdAsync(id);
+            return owner.MapTo<OwnerDto>();
+        }
+
+        private async Task<Owner> GetEntityByIdAsync(int id)
+        {
+            return await OwnerPropertyDbContext.Owners.FirstOrDefaultAsync(w => w.Id == id && !w.IsDeleted);
         }
     }
 }

@@ -8,8 +8,8 @@ namespace OwnerPropertyManagement.Domain.IServices
     {
         Task<PropertyDto> AddAsync(PropertyDto property);
         Task<PropertyDto> UpdateAsync(PropertyDto property);
-        Task<bool> DeleteAsync(PropertyDto property);
-        Task<IEnumerable<PropertyDto>> GetPropertiesByOwnerAsync(int ownerId);
-        Task<PropertyDto> GetPropertiesByOIdAsync(int id);
+        Task<bool> DeleteAsync(int id);
+        Task<IEnumerable<PropertyDto>> GetAllAsync(int? ownerId);
+        Task<PropertyDto> GetByIdAsync(int id);
     }
 }
