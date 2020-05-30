@@ -1,7 +1,7 @@
 'use strict';
 var opm = {
-    apiService: "http://localhost:63404/api/",
+    apiService: "http://localhost:44311/api/",
     ownerUrl: "onwer/",
     properyUrl: "property/",
-    masterTablesUrl: "master-tables"
+    masterTablesUrl: "master-table"
 };

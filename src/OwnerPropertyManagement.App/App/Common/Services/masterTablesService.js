@@ -3,15 +3,15 @@ angular.module("ownerPropertyManagementApp").factory("masterTablesService",
     [
         "$q", "$http", function ($q, $http) {
             return {
-                getCarBrand: getCarBrand,
-                getFranchisee: getFranchisee,
+                getTowns: getTowns,
+                getFacilities: getFacilities,
             };
 
-            function getCarBrand(filter) {
+            function getTowns(filter) {
                 var deferred = $q.defer();
                 $http({
                     method: "GET",
-                    url: clcw.apiService + clcw.masterTablesUrl + "carBrand"
+                    url: opm .apiService + opm.masterTablesUrl + "towns"
                 }).then(function (response) {
                     deferred.resolve(response.data.result);
                 }, function (response) {
@@ -20,11 +20,11 @@ angular.module("ownerPropertyManagementApp").factory("masterTablesService",
                 return deferred.promise;
             }
 
-            function getFranchisee(filter) {
+            function getFacilities(filter) {
                 var deferred = $q.defer();
                 $http({
                     method: "GET",
-                    url: clcw.apiService + clcw.masterTablesUrl + "franchisees"
+                    url: opm.apiService + opm.masterTablesUrl + "facilities"
                 }).then(function (response) {
                     deferred.resolve(response.data.result);
                 }, function (response) {
