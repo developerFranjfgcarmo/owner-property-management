@@ -1,4 +1,4 @@
-﻿angular.module("ClcWorldApp").directive("clcPagination", function () {
+﻿angular.module("ownerPropertyManagementApp").directive("clcPagination", function () {
     return {
         restrict: "E",
         replace: true,

@@ -1,5 +1,5 @@
 ﻿"use strict";
-angular.module("ClcWorldApp").factory("masterTablesService",
+angular.module("ownerPropertyManagementApp").factory("masterTablesService",
     [
         "$q", "$http", function ($q, $http) {
             return {

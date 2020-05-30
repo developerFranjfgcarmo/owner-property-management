@@ -1,4 +1,4 @@
-﻿angular.module("ClcWorldApp").directive("clcFormField", function () {
+﻿angular.module("ownerPropertyManagementApp").directive("clcFormField", function () {
     return {
         restrict: "E",
         replace: true,
