@@ -1,0 +1,14 @@
+﻿<div class="row">
+
+    <div class="col-sm-12 text-center">
+        <ul class="pagination pagination-sm">
+            <li><a ng-click="turnPage(0)">&laquo;</a></li>
+            <li ng-show="true"><a ng-show="filter.page > 9" ng-click="turnPage(filter.page-10)">...</a></li>
+            <li ng-repeat="i in numOfPages" ng-class="{'active': i == filter.page,'hidden-xs hidden-sm hidden-md hidden-lg': ((i < (filter.page - 2)) || (i > (filter.page + 2))) }"><a ng-click="turnPage(i)">{{i+1}}</a></li>
+            <li ng-show="true"><a ng-show="filter.page < (total/filter.take) - 10" ng-click="turnPage(filter.page + 10)">...</a></li>
+            <li><a ng-click="turnPage(total/filter.take,true)">&raquo;</a></li>
+        </ul>
+
+        <div class="pagination-total"><small>{{ total }} registros encontrados</small></div>
+    </div>
+</div>

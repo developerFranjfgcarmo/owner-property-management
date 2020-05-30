@@ -1,0 +1,6 @@
+﻿<div class="form-group">
+    <label>{{label}}</label>
+
+    <select class="form-control" ng-model="model" data-ng-required="{{required}}" ng-options="option as option.name for option in options track by option.id" ng-change="onChange()(model)">
+    </select>
+</div>

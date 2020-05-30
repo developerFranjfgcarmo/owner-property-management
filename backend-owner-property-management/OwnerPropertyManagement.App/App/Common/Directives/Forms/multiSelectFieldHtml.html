@@ -1,0 +1,14 @@
+﻿<div class="custom-clc-form-field">
+    <div class="col-xs-4 LoginParagraph">{{label}}</div>
+    <div class="col-xs-6">
+        <select class="form-control" 
+                name="{{name}}" 
+                ng-model="model"
+                data-ng-multiple="true"
+                data-ng-options="option.id as option.name for option in options"
+                placeholder="{{getPlaceHolder()}}"
+                data-ng-required="{{required}}">
+        </select>
+    </div>
+</div>
+
