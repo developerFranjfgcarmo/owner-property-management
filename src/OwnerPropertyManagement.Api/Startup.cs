@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using OwnerPropertyManagement.Api.Extensions;
+using OwnerPropertyManagement.Api.Middleware;
 
 namespace OwnerPropertyManagement.Api
 {
@@ -70,7 +71,7 @@ namespace OwnerPropertyManagement.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCustomExceptionMiddleware();
             app.UseRouting();
             // global cors policy
             app.UseCors(PolicyOrigingAllowed);
