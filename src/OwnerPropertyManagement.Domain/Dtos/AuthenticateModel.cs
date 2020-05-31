@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HealthcareManagement.Api.Auth.ViewModels
+namespace OwnerPropertyManagement.Domain.Dtos
 {
     public class AuthenticateModel
     {
