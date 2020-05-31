@@ -8,11 +8,11 @@ angular.module('ownerPropertyManagementApp').factory('masterTablesService', [
       getFacilities: getFacilities
     }
 
-    function getTowns (filter) {
+    function getTowns () {
       var deferred = $q.defer()
       $http({
         method: 'GET',
-        url: opm.apiService + opm.masterTablesUrl + 'towns'
+        url: opm.apiService + opm.masterTablesUrl + '/towns'
       }).then(
         function (response) {
           deferred.resolve(response.data)
@@ -24,11 +24,11 @@ angular.module('ownerPropertyManagementApp').factory('masterTablesService', [
       return deferred.promise
     }
 
-    function getFacilities (filter) {
+    function getFacilities () {
       var deferred = $q.defer()
       $http({
         method: 'GET',
-        url: opm.apiService + opm.masterTablesUrl + 'facilities'
+        url: opm.apiService + opm.masterTablesUrl + '/facilities'
       }).then(
         function (response) {
           deferred.resolve(response.data)
