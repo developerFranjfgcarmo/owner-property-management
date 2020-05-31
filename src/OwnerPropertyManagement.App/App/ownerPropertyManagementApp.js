@@ -6,13 +6,13 @@ angular.module("ownerPropertyManagementApp").config(function ($stateProvider, $u
         controller: "homeController",
         controllerAs: "homeCtrl",
         templateUrl: "/App/home/home.html"
-    })/*.state("owner",
+    }).state("properties",
     {
-        url: "/owner",
-        controller: "ownerController",
-        controllerAs: "ownerCtrl",
-        templateUrl: "/App/owner/ownerList.html"
-    })*/;
+        url: "/properties",
+        controller: "propertyListController",
+        controllerAs: "propertyListCtrl",
+        templateUrl: "/App/property/Views/propertyList.html"
+    });
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise("/home");
 });

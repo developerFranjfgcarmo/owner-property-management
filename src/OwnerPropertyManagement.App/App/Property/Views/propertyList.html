@@ -1,0 +1,49 @@
+<h2>Properties</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">        
+        <div class="row">
+            <div class="col-sm-10">Properties</div>
+            <div class="col-sm-2">
+                <a ng-href="" class="btn btn-info pull-left" ng-click="propertyListCtrl.add(0)">Add property</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        
+        <!-- search bar -->
+        <div class="navbar-header">
+           
+        </div>
+        <!--List-->
+        <div class="table-responsive">
+            <table class="table table-hover ">
+                <thead>
+                <tr>
+                    <th ng-repeat="attribute in propertyListCtrl.attributes">
+                        <span ng-bind="::attribute.displayName"></span>
+                        <!--<i class="fa fa-fw fa-sort"></i>-->
+                    </th>
+                </tr>
+                <tr>
+                    <!--Filter-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="property in propertyListCtrl.properties">
+                    <td ng-bind="::property.name"></td>
+                    <td ng-bind="::property.owner"></td>
+                    <td ng-bind="::property.town"></td>
+                    <td ng-bind="::property.zone"></td>
+                    <td ng-bind="::property.distanceAirport"></td>
+                    <td ng-bind="::property.distanceBeach"></td>
+                    <td ng-bind="::property.active"></td>
+                    <td>
+                        <!--Accion-->
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <clc-pagination num-of-pages="propertyListCtrl.numOfPages" filter="propertyListCtrl.filter" total="{{propertyListCtrl.total}}" get-all="propertyListCtrl.getAll()"></clc-pagination>
+    </div>
+</div>
