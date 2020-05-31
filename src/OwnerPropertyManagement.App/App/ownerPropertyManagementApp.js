@@ -30,7 +30,7 @@ angular
         templateUrl: '/App/property/Views/propertyList.html'
       })
     $locationProvider.html5Mode(true)
-    $urlRouterProvider.otherwise('/login')
+    $urlRouterProvider.otherwise('/home')
   })
   .factory('authHttpResponseInterceptor', [
     '$q',
