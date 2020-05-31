@@ -14,12 +14,23 @@
     <![endif]-->
 
 </head>
-<body>
-    <!--
-    <toaster-container toaster-options="{'time-out': 3000, 'position-class': 'toast-top-full-width'}"></toaster-container>
-    -->
-    <!--Limpiado de librerias.-->
-    <header class="navbar " style="background-color:#0085ad; border-radius: 0;"></header>
+<body ng-controller="indexController as indexCtrl">
+    <header class="navbar" style="background-color:#0085ad; border-radius: 0;">
+        <div class="navbar-collapse collapse">
+            <div class="navbar-header">
+                <h1 ng-click="indexCtrl.goHome()">Owner Property Management
+                </h1>                
+            </div>
+            <ul class="nav navbar-nav navbar-right" ng-show="indexCtrl.isAuth()">            
+                <li>
+                    <li>
+                        <div class="btn-nav"><a class="btn btn-success btn-small navbar-btn" ng-click="indexCtrl.logOut()"><i class="fa fa-sign-out"></i></a>
+                        </div>
+                    </li>                   
+                </li>
+            </ul>
+        </div>
+    </header>
 
     <div class="container-fluid">
         <div class="container">
@@ -54,6 +65,7 @@
     <script src="App/Property/Controller/propertyListController.js"></script>
     <script src="App/Property/Controller/propertyEditController.js"></script>
     <script src="App/Login/loginController.js"></script>
+    <script src="App/indexController.js"></script>
     <!--Angular Filter-->
     <!--Angular Directives-->
     <script src="App/Common/Directives/Pagination/pagination.js"></script>
