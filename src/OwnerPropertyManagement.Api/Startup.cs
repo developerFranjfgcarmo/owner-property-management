@@ -75,6 +75,9 @@ namespace OwnerPropertyManagement.Api
             // global cors policy
             app.UseCors(PolicyOrigingAllowed);
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
