@@ -12,7 +12,7 @@ fullstack-owner-property-management
 ```
 ## Getting started.
 - Migration. Set project OwnerPropertyManagement.Data and run the command Updata-Database from Package Manager Console
-- AngularApp run with Visual Studio with the option View Browser o with visual studio with the extension live Server
+- AngularApp run with Visual Studio with the option View Browser or with visual studio code, pre-installing the extension live Server
 - Run the project OwnerPropertyManagement.Api
 
 ## How it work
