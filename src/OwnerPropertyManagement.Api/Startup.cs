@@ -10,6 +10,7 @@ namespace OwnerPropertyManagement.Api
     public class Startup
     {
         public IConfiguration Configuration { get; }
+        private string PolicyOrigingAllowed => "AngularApp";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -20,7 +21,17 @@ namespace OwnerPropertyManagement.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy(PolicyOrigingAllowed,
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                            //builder.WithOrigins(url)
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                    });
+            });
             //Dependency Injection
             services.AddDataBase(Configuration).AddServices();
         }
@@ -34,6 +45,8 @@ namespace OwnerPropertyManagement.Api
             }
 
             app.UseRouting();
+            // global cors policy
+            app.UseCors(PolicyOrigingAllowed);
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
