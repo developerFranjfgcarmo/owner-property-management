@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OwnerPropertyManagement.Data.Context;
 
 namespace OwnerPropertyManagement.Data.Migrations
 {
     [DbContext(typeof(OwnerPropertyDbContext))]
-    partial class OwnerPropertyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200531094348_remove-audittable")]
+    partial class removeaudittable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

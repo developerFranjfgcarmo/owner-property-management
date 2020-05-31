@@ -2,7 +2,7 @@
 
 namespace OwnerPropertyManagement.Data.Entities
 {
-    public class Property:Auditable
+    public class Property
     {
         public int Id { get; set; }
         public string Name { get; set; }

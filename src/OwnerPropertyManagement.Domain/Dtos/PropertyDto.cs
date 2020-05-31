@@ -22,6 +22,7 @@ namespace OwnerPropertyManagement.Domain.Dtos
         public string LocalLeisure { get; set; }
         public string LocalActivities { get; set; }
         public int OwnerId { get; set; }
+        public int TownId { get; set; }
         public List<int> Facilities { get; set; }
 
     }

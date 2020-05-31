@@ -2,7 +2,7 @@
 
 namespace OwnerPropertyManagement.Data.Entities
 {
-    public class Owner: Auditable
+    public class Owner
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

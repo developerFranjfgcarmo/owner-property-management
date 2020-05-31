@@ -48,7 +48,7 @@ namespace OwnerPropertyManagement.Api.Controllers
 
         [HttpGet]
         [Route("owner-name-list")]
-        public async Task<IActionResult> OwnerNameListAsync(int id)
+        public async Task<IActionResult> OwnerNameListAsync()
         {
             var result = await _ownerDomain.OwnerNameListAsync();
             return result != null ? (IActionResult) Ok(result) : NotFound();
