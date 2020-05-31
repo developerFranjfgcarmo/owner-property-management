@@ -5,7 +5,8 @@ angular.module('ownerPropertyManagementApp').factory('masterTablesService', [
   function ($q, $http) {
     return {
       getTowns: getTowns,
-      getFacilities: getFacilities
+      getFacilities: getFacilities,
+      getOwnerNameList: getOwnerNameList
     }
 
     function getTowns () {
@@ -39,5 +40,22 @@ angular.module('ownerPropertyManagementApp').factory('masterTablesService', [
       )
       return deferred.promise
     }
+
+    function getOwnerNameList () {
+      var deferred = $q.defer()
+      $http({
+        method: 'GET',
+        url: opm.apiService + opm.ownerUrl + 'owner-name-list'
+      }).then(
+        function (response) {
+          deferred.resolve(response.data)
+        },
+        function (response) {
+          deferred.reject(response.data)
+        }
+      )
+      return deferred.promise
+    }
+
   }
 ])

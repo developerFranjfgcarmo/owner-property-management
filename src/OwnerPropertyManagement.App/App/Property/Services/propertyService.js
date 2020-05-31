@@ -40,7 +40,8 @@ angular.module('ownerPropertyManagementApp').factory('propertyService', [
         function (response) {
           deferred.reject(response.data)
         }
-      )
+      );
+      return deferred.promise;
     }
 
     function add (property) {
@@ -56,7 +57,8 @@ angular.module('ownerPropertyManagementApp').factory('propertyService', [
         function (response) {
           deferred.reject(response.data.validationErrors)
         }
-      )
+      );
+      return deferred.promise;
     }
 
     function update (property) {
@@ -72,7 +74,8 @@ angular.module('ownerPropertyManagementApp').factory('propertyService', [
         function (response) {
           deferred.reject(response.data.validationErrors)
         }
-      )
+      );
+      return deferred.promise;
     }
 
     function remove (id) {

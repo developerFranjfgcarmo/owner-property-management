@@ -9,7 +9,7 @@
             label: "@fieldLabel",
             disabled: "=fieldDisabled",
             fieldId: "@fieldId",
-            options: "=options",
+            options: "=fieldOptions",
             isStartDate: "=",
             isEndDate: "=",
             referenceDate: "=",

@@ -2,18 +2,72 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click=""><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="propertyEditCtrl.dismiss()"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Property</h4>
             </div>
             <div class="modal-body">
-                <form novalidate name="carAddOrUpdateCtrl.frmCarEdit">
-                    <h5>Datos del vehiculo</h5>
-                    
+                <form novalidate name="propertyEditCtrl.frm">
+                    <h5>Property Data</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.ownerId" data-field-name="owner" data-field-label="Owner" data-field-type="select" data-field-options="propertyEditCtrl.owners" data-field-required="true"></opm-form-field>                              
+                        </div> 
+                        <div class="col-md-6">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.name" data-field-name="name" data-field-label="Name" data-field-required="true" data-field-autofocus="true"></opm-form-field>
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <opm-form-field data-field-model="propertyEditCtrl.property.description" data-field-name="name" data-field-label="Description" data-field-required="true" data-field-autofocus="true" data-field-type="textarea"></opm-form-field> 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.facilities" data-field-name="facilities" data-field-label="facilities" data-field-type="multiSelect" data-field-options="propertyEditCtrl.facilities"></opm-form-field>           
+                        </div> 
+                        <div class="col-md-6">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.townId" data-field-name="townId" data-field-label="Town" data-field-type="select" data-field-options="propertyEditCtrl.towns" ></opm-form-field>           
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.sleeps" data-field-name="sleeps" data-field-label="Number sleeps"  data-field-autofocus="true" data-field-type="number"></opm-form-field>
+                        </div> 
+                        <div class="col-md-4">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.bedrooms" data-field-name="bedrooms" data-field-label="Number bedrooms"  data-field-autofocus="true" data-field-type="number"></opm-form-field>
+                        </div> 
+                        <div class="col-md-4">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.bathrooms" data-field-name="bathrooms" data-field-label="Number bathrooms"  data-field-autofocus="true" data-field-type="number"></opm-form-field>
+                        </div> 
+                    </div>    
+                    <div class="row">
+                        <div class="col-md-3">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.privatePool" data-field-name="privatePool" data-field-label="PrivatePool"  data-field-autofocus="true" data-field-type="checkbox"></opm-form-field>
+                        </div> 
+                        <div class="col-md-3">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.heatedPool" data-field-name="heatedPool" data-field-label="HeatedPool"  data-field-autofocus="true" data-field-type="checkbox"></opm-form-field>
+                        </div> 
+                        <div class="col-md-3">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.wifi" data-field-name="wifi" data-field-label="Wifi"  data-field-autofocus="true" data-field-type="checkbox"></opm-form-field>
+                        </div> 
+                        <div class="col-md-3">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.garden" data-field-name="garden" data-field-label="Garden"  data-field-autofocus="true" data-field-type="checkbox"></opm-form-field>
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.livingArea" data-field-name="livingArea" data-field-label="Living Area"  data-field-autofocus="true" data-field-type="number"></opm-form-field>
+                        </div> 
+                        <div class="col-md-4">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.distanceAirport" data-field-name="distanceAirport" data-field-label="Distance Airport"  data-field-autofocus="true" data-field-type="number"></opm-form-field>
+                        </div> 
+                        <div class="col-md-4">
+                            <opm-form-field data-field-model="propertyEditCtrl.property.distanceBeach" data-field-name="distanceBeach" data-field-label="Distance Beach"  data-field-autofocus="true" data-field-type="number"></opm-form-field>
+                        </div> 
+                    </div>                     
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="">Close</button>
-                <button type="button" class="btn btn-info" ng-click="" ng-disabled="">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="propertyEditCtrl.dismiss()">Close</button>
+                <button type="button" class="btn btn-info" ng-click="propertyEditCtrl.save()" ng-disabled="!propertyEditCtrl.modelIsValid()">Save</button>
             </div>
         </div>
     </div>

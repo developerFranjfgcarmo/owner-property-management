@@ -1,6 +1,9 @@
 ﻿<div class="form-group">
     <label>{{label}}</label>
 
-    <select class="form-control" ng-model="model" data-ng-required="{{required}}" ng-options="option as option.name for option in options track by option.id" ng-change="onChange()(model)">
-    </select>
+    <!-- <select class="form-control" ng-model="model" data-ng-required="{{required}}">
+        <option ng-repeat="option in options" value="{{option.id}}">{{option.name}}</option>   
+    </select> -->
+    <select class="form-control" data-ng-required="{{required}}" ng-model="model" ng-options="option as option.name for option in options track by model"></select>
+
 </div>

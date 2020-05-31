@@ -8,30 +8,35 @@ angular.module('ownerPropertyManagementApp').controller('propertyListController'
     const vm = this;
     vm.properties = [];
     vm.total = 0;
+    vm.ownerId=null;
+    vm.owners = [];
     vm.filter = { take: 5, page: 1 };
-    vm.attributes = [
-      { displayName: 'Id', attribute: 'id' },
+    vm.attributes = [      
       { displayName: 'Property', attribute: 'name' },
       { displayName: 'Owner', attribute: 'owner' },
       { displayName: 'Town', attribute: 'town' },
       { displayName: 'Zone', attribute: 'zone' },
       { displayName: 'DistanceAirport', attribute: 'distanceAirport' },
       { displayName: 'DistanceBeach', attribute: 'distanceBeach' },
-      { displayName: 'DistanceBeach', attribute: 'active' }
+      { displayName: 'active', attribute: 'active' },
+      { displayName: 'Edit', attribute: 'action' }
     ];
     vm.getAll = getAll;
-    vm.add = addOrUpdate;
+    vm.addOrUpdate = addOrUpdate;
 
     init()
 
     function init () {
+      masterTablesService.getOwnerNameList().then(function (res) {
+        vm.owners = res;
+      })
       getAll();
     }
 
     function getAll () {
       propertyService.getAll(vm.filter).then(
         function (response) {
-          vm.properties = response.item;
+          vm.properties = response.items;
           vm.total = response.total;
           vm.numOfPages = [];
           for (let i = 0; i * vm.filter.take < vm.total; i++) {
@@ -47,21 +52,20 @@ angular.module('ownerPropertyManagementApp').controller('propertyListController'
       $uibModal.open({
         templateUrl: "/App/Property/Views/propertyEdit.html",
         controller: "propertyEditController",
-        bindToController: true,
-        controllerAs: "propertyEditController",
-        resolve: {
-            $scope: function() {
-                $scope.id = id;
-                return $scope;
-            },
+        replace: true,
+        controllerAs: "propertyEditCtrl",           
+        resolve: {            
             propertyService: function() {
               return propertyService;
           },
           masterTablesService: function() {
               return masterTablesService;
-          }
+          },
+          id: function () {
+            return id;
+        }
         },        
-    }).result.then(function(result) {
+    }).result.then(function() {
         getAll();
     });
     }
