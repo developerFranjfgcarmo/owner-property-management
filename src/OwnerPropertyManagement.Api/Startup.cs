@@ -1,8 +1,11 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using OwnerPropertyManagement.Api.Extensions;
 
 namespace OwnerPropertyManagement.Api
@@ -20,7 +23,8 @@ namespace OwnerPropertyManagement.Api
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers().AddNewtonsoftJson(); 
+            services.AddControllers().AddNewtonsoftJson();
+            var url = Configuration.GetSection("PolicyAllowOrigin").GetSection("Url").Value;
             services.AddCors(options =>
             {
                 options.AddPolicy(PolicyOrigingAllowed,
@@ -32,10 +36,33 @@ namespace OwnerPropertyManagement.Api
                             .AllowAnyHeader();
                     });
             });
+            // configure jwt authentication
+            var secret = Configuration.GetSection("AppSettings").GetSection("Secret").Value;
+            var key = Encoding.ASCII.GetBytes(secret);
+
+            services.AddAuthentication(x =>
+                {
+                    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(x =>
+                {
+                    x.RequireHttpsMetadata = false;
+                    x.SaveToken = true;
+                    x.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(key),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+                });
+
             //Dependency Injection
             services.AddDataBase(Configuration).AddServices();
         }
 
+       
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
