@@ -2,7 +2,7 @@
 
 namespace OwnerPropertyManagement.Domain.Dtos
 {
-    public class PropertyDto:AuditableDto
+    public class PropertyDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

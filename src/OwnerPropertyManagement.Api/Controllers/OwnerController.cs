@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OwnerPropertyManagement.Domain.Dtos;
 using OwnerPropertyManagement.Domain.IDomain;
@@ -8,6 +9,7 @@ namespace OwnerPropertyManagement.Api.Controllers
 {
     [Route("api/owner")]
     [ApiController]
+    [Authorize]
     public class OwnerController : ControllerBase
     {
         private readonly IOwnerDomain _ownerDomain;
