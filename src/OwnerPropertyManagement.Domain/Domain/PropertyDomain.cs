@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
@@ -64,7 +66,7 @@ namespace OwnerPropertyManagement.Domain.Domain
             var result = new PagedCollection<PropertyListDto>();
             using var reader = await OwnerPropertyDbContext.Database.GetDbConnection().QueryMultipleAsync(query, propertyFilter);
             result.Items = (await reader.ReadAsync<PropertyListDto>()).ToList();
-            result.Total = (await reader.ReadAsync<long>()).FirstOrDefault();
+            result.Total=  reader.ReadFirstOrDefault<long>();
             return result;
         }
 

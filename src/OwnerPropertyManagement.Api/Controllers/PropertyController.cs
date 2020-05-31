@@ -13,9 +13,9 @@ namespace OwnerPropertyManagement.Api.Controllers
     {
         private readonly IPropertyDomain _propertyDomain;
 
-        public PropertyController(IPropertyDomain ownerDomain)
+        public PropertyController(IPropertyDomain propertyDomain)
         {
-            _propertyDomain = ownerDomain;
+            _propertyDomain = propertyDomain;
         }
 
         [HttpPost]
@@ -33,7 +33,7 @@ namespace OwnerPropertyManagement.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetListAsync(PropertyFilter propertyFilter)
+        public async Task<IActionResult> GetListAsync([FromQuery] PropertyFilter propertyFilter)
         {
             var result = await _propertyDomain.GetAllAsync(propertyFilter);
             return result.Items.Any() ? (IActionResult) Ok(result) : NotFound();
