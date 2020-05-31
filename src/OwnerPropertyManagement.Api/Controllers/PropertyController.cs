@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OwnerPropertyManagement.Domain.Dtos;
 using OwnerPropertyManagement.Domain.Dtos.Filter;
@@ -9,6 +10,7 @@ namespace OwnerPropertyManagement.Api.Controllers
 {
     [Route("api/property")]
     [ApiController]
+    [Authorize]
     public class PropertyController : ControllerBase
     {
         private readonly IPropertyDomain _propertyDomain;

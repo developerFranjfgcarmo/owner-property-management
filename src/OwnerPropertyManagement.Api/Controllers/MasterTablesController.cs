@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OwnerPropertyManagement.Domain.IDomain;
 
@@ -6,6 +7,7 @@ namespace OwnerPropertyManagement.Api.Controllers
 {
     [Route("api/master-table")]
     [ApiController]
+    [Authorize]
     public class MasterTablesController : ControllerBase
     {
         private readonly IMasterTablesDomain _masterTablesDomain;
