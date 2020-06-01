@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.EntityFrameworkCore;
+using OwnerPropertyManagement.Contracts.Dtos;
+using OwnerPropertyManagement.Contracts.Dtos.Filter;
+using OwnerPropertyManagement.Contracts.Mapper;
 using OwnerPropertyManagement.Data.Context;
 using OwnerPropertyManagement.Data.Entities;
-using OwnerPropertyManagement.Domain.Dtos;
-using OwnerPropertyManagement.Domain.Dtos.Filter;
 using OwnerPropertyManagement.Domain.IDomain;
-using OwnerPropertyManagement.Domain.Mapper;
 using OwnerPropertyManagement.Domain.Queries;
 
 namespace OwnerPropertyManagement.Domain.Domain

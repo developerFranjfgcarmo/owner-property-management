@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OwnerPropertyManagement.Domain.Dtos
+namespace OwnerPropertyManagement.Contracts.Dtos
 {
     public class PagedCollection<TDto>
     {

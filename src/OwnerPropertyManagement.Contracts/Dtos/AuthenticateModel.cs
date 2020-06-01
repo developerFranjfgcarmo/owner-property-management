@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OwnerPropertyManagement.Domain.Dtos
+namespace OwnerPropertyManagement.Contracts.Dtos
 {
     public class AuthenticateModel
     {

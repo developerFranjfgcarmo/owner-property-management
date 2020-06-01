@@ -7,7 +7,6 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using OwnerPropertyManagement.Api.Auth.Entities;
-using OwnerPropertyManagement.Api.Auth.ViewModel;
 
 namespace OwnerPropertyManagement.Api.Auth.Service
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OwnerPropertyManagement.Api.Auth.Service;
-using OwnerPropertyManagement.Domain.Dtos;
+using OwnerPropertyManagement.Contracts.Dtos;
 
 namespace OwnerPropertyManagement.Api.Controllers
 {

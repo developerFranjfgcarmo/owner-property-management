@@ -1,5 +1,4 @@
 ﻿using OwnerPropertyManagement.Api.Auth.Entities;
-using OwnerPropertyManagement.Api.Auth.ViewModel;
 
 namespace OwnerPropertyManagement.Api.Auth.Service
 {

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using OwnerPropertyManagement.Contracts.Dtos;
+using OwnerPropertyManagement.Contracts.Mapper;
 using OwnerPropertyManagement.Data.Context;
-using OwnerPropertyManagement.Domain.Dtos;
 using OwnerPropertyManagement.Domain.IDomain;
-using OwnerPropertyManagement.Domain.Mapper;
 
 namespace OwnerPropertyManagement.Domain.Domain
 {

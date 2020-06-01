@@ -1,4 +1,4 @@
-﻿namespace OwnerPropertyManagement.Domain.Dtos.Filter
+﻿namespace OwnerPropertyManagement.Contracts.Dtos.Filter
 {
     public class PagedFilter
     {

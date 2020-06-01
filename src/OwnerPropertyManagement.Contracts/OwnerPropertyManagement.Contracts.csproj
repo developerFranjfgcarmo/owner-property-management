@@ -5,11 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.0.35" />
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OwnerPropertyManagement.Contracts\OwnerPropertyManagement.Contracts.csproj" />
     <ProjectReference Include="..\OwnerPropertyManagement.Data\OwnerPropertyManagement.Data.csproj" />
   </ItemGroup>
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using OwnerPropertyManagement.Domain.Dtos;
+using OwnerPropertyManagement.Contracts.Dtos;
 
 namespace OwnerPropertyManagement.Domain.IDomain
 {

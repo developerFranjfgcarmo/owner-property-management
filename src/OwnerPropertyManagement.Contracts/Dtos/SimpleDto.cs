@@ -1,4 +1,4 @@
-﻿namespace OwnerPropertyManagement.Domain.Dtos
+﻿namespace OwnerPropertyManagement.Contracts.Dtos
 {
     public class SimpleDto
     {

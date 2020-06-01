@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
+using OwnerPropertyManagement.Contracts.Dtos.Filter;
 using OwnerPropertyManagement.Domain.Domain;
-using OwnerPropertyManagement.Domain.Dtos.Filter;
 using OwnerPropertyManagement.Test.Mocks;
 using Xunit;
 

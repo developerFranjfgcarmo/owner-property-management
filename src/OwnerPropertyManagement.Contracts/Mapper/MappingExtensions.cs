@@ -1,4 +1,4 @@
-﻿namespace OwnerPropertyManagement.Domain.Mapper
+﻿namespace OwnerPropertyManagement.Contracts.Mapper
 {
     public static class MappingExtensions
     {

@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OwnerPropertyManagement.Domain.Dtos;
-using OwnerPropertyManagement.Domain.Dtos.Filter;
+using OwnerPropertyManagement.Contracts.Dtos;
+using OwnerPropertyManagement.Contracts.Dtos.Filter;
 using OwnerPropertyManagement.Domain.IDomain;
 
 namespace OwnerPropertyManagement.Api.Controllers

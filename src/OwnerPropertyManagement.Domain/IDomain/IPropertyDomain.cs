@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using OwnerPropertyManagement.Domain.Dtos;
-using OwnerPropertyManagement.Domain.Dtos.Filter;
+using OwnerPropertyManagement.Contracts.Dtos;
+using OwnerPropertyManagement.Contracts.Dtos.Filter;
 
 namespace OwnerPropertyManagement.Domain.IDomain
 {

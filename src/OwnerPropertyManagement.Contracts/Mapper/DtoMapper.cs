@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using AutoMapper;
+using OwnerPropertyManagement.Contracts.Dtos;
 using OwnerPropertyManagement.Data.Entities;
-using OwnerPropertyManagement.Domain.Dtos;
 
-namespace OwnerPropertyManagement.Domain.Mapper
+namespace OwnerPropertyManagement.Contracts.Mapper
 {
     /// <summary>
     ///     Configuration of Dtos

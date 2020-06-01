@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using OwnerPropertyManagement.Contracts.Dtos;
+using OwnerPropertyManagement.Contracts.Dtos.Filter;
+using OwnerPropertyManagement.Contracts.Mapper;
 using OwnerPropertyManagement.Data.Context;
 using OwnerPropertyManagement.Data.Entities;
-using OwnerPropertyManagement.Domain.Dtos;
-using OwnerPropertyManagement.Domain.Dtos.Filter;
 using OwnerPropertyManagement.Domain.IDomain;
-using OwnerPropertyManagement.Domain.Mapper;
 
 namespace OwnerPropertyManagement.Domain.Domain
 {
