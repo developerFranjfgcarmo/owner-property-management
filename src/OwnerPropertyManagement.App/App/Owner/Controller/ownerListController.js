@@ -8,7 +8,7 @@ angular.module('ownerPropertyManagementApp').controller('ownerListController', [
       const vm = this;
       vm.total = 0;
       vm.owners = [];
-      vm.filter = { take: 5, page: 1 };
+      vm.filter = { take: 5, page: 0 };
       vm.attributes = [      
         { displayName: 'FirstName', attribute: 'firstName' },
         { displayName: 'Surname', attribute: 'surname' },
@@ -47,16 +47,13 @@ angular.module('ownerPropertyManagementApp').controller('ownerListController', [
       }
       function addOrUpdate(id){
         $uibModal.open({
-          templateUrl: "/App/owner/Views/ownerEdit.html",
+          templateUrl: "/App/Owner/Views/ownerEdit.html",
           controller: "ownerEditController",
           replace: true,
           controllerAs: "ownerEditCtrl",           
           resolve: {            
               ownerService: function() {
                 return ownerService;
-            },
-            masterTablesService: function() {
-                return masterTablesService;
             },
             id: function () {
               return id;

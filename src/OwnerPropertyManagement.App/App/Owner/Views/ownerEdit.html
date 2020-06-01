@@ -1,0 +1,59 @@
+<div id="car-Modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="ownerEditCtrl.dismiss()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Owner</h4>
+            </div>
+            <div class="modal-body">
+                <form novalidate name="ownerEditCtrl.frm">
+                    <h5>Owner Data</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <opm-form-field data-field-model="ownerEditCtrl.owner.firstName" data-field-name="firstName" data-field-label="FirstName" data-field-required="true"></opm-form-field>
+                        </div> 
+                        <div class="col-md-6">
+                            <opm-form-field data-field-model="ownerEditCtrl.owner.surname" data-field-name="surname" data-field-label="Surname" data-field-required="true"></opm-form-field>
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <opm-form-field data-field-model="ownerEditCtrl.owner.nick" data-field-name="nick" data-field-label="Nick"></opm-form-field>
+                        </div> 
+                        <div class="col-md-4">
+                            <opm-form-field data-field-model="ownerEditCtrl.owner.personalPhoneNumber" data-field-name="personalPhoneNumber" data-field-label="Personal Phone"></opm-form-field>
+                        </div> 
+                        <div class="col-md-4">
+                            <opm-form-field data-field-model="ownerEditCtrl.owner.contactPhoneProperty" data-field-name="contactPhoneProperty" data-field-label="Contact Phone"></opm-form-field>
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <opm-form-field data-field-model="ownerEditCtrl.owner.street" data-field-name="street" data-field-label="Street"></opm-form-field>
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <opm-form-field data-field-model="ownerEditCtrl.owner.postalCode" data-field-name="postalCode" data-field-label="PostalCode" data-field-type="number"></opm-form-field>
+                        </div> 
+                        <div class="col-md-4">
+                            <opm-form-field data-field-model="ownerEditCtrl.owner.city" data-field-name="city" data-field-label="City"></opm-form-field>
+                        </div> 
+                        <div class="col-md-4">
+                            <opm-form-field data-field-model="ownerEditCtrl.owner.country" data-field-name="country" data-field-label="Country"></opm-form-field>
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <opm-form-field data-field-model="ownerEditCtrl.owner.aboutMe" data-field-name="aboutMe" data-field-label="AboutMe" data-field-type="textarea"></opm-form-field>
+                        </div>  
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ownerEditCtrl.dismiss()">Close</button>
+                <button type="button" class="btn btn-info" ng-click="ownerEditCtrl.save()" ng-disabled="!ownerEditCtrl.modelIsValid()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
