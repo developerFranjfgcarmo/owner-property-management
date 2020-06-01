@@ -52,10 +52,10 @@ angular.module('ownerPropertyManagementApp').factory('propertyService', [
         data: property
       }).then(
         function (response) {
-          deferred.resolve(response.data.result)
+          deferred.resolve(response.data)
         },
         function (response) {
-          deferred.reject(response.data.validationErrors)
+          deferred.reject(response.data)
         }
       );
       return deferred.promise;
@@ -69,10 +69,10 @@ angular.module('ownerPropertyManagementApp').factory('propertyService', [
         data: property
       }).then(
         function (response) {
-          deferred.resolve(response.data.result)
+          deferred.resolve(response.data)
         },
         function (response) {
-          deferred.reject(response.data.validationErrors)
+          deferred.reject(response.data)
         }
       );
       return deferred.promise;
@@ -86,10 +86,10 @@ angular.module('ownerPropertyManagementApp').factory('propertyService', [
         url: opm.apiService + opm.properyUrl + id
       }).then(
         function (response) {
-          deferred.resolve(response.data.result)
+          deferred.resolve(response.data)
         },
         function (response) {
-          deferred.reject(response.data.validationErrors)
+          deferred.reject(response.data)
         }
       )
 

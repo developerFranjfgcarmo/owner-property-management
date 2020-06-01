@@ -28,6 +28,11 @@ angular
         controller: 'propertyListController',
         controllerAs: 'propertyListCtrl',
         templateUrl: '/App/property/Views/propertyList.html'
+      }).state('owners', {
+        url: '/owners',
+        controller: 'ownerListController',
+        controllerAs: 'ownerListCtrl',
+        templateUrl: '/App/Owner/Views/ownerList.html'
       })
     $locationProvider.html5Mode(true)
     $urlRouterProvider.otherwise('/home')

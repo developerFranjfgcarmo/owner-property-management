@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OwnerPropertyManagement.Domain.Dtos;
+using OwnerPropertyManagement.Domain.Dtos.Filter;
 using OwnerPropertyManagement.Domain.IDomain;
 
 namespace OwnerPropertyManagement.Api.Controllers
@@ -34,10 +35,10 @@ namespace OwnerPropertyManagement.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetListAsync()
+        public async Task<IActionResult> GetListAsync([FromQuery] PagedFilter filter)
         {
-            var result = await _ownerDomain.GetAllAsync();
-            return result.Any() ? (IActionResult) Ok(result) : NotFound();
+            var result = await _ownerDomain.GetAllAsync(filter);
+            return result.Items.Any() ? (IActionResult) Ok(result) : NotFound();
         }
 
         [HttpGet]
