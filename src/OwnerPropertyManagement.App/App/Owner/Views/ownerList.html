@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-sm-10">Properties</div>
             <div class="col-sm-2">
-                <a ng-href="" class="btn btn-info pull-left" ng-click="ownerListCtrl.addOrUpdate(0)">Add property</a>
+                <a ng-href="" class="btn btn-info pull-left" ng-click="ownerListCtrl.addOrUpdate(0)">Add owner</a>
             </div>
         </div>
     </div>
@@ -23,15 +23,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="property in ownerListCtrl.properties">
-                    <td ng-bind="::property.FirstName"></td>
-                    <td ng-bind="::property.Surname"></td>
-                    <td ng-bind="::property.Nick"></td>
-                    <td ng-bind="::property.PersonalPhoneNumber"></td>
-                    <td ng-bind="::property.City"></td>
-                    <td ng-bind="::property.Country"></td>                    
+                <tr ng-repeat="owner in ownerListCtrl.owners">
+                    <td ng-bind="::owner.firstName"></td>
+                    <td ng-bind="::owner.surname"></td>
+                    <td ng-bind="::owner.nick"></td>
+                    <td ng-bind="::owner.personalPhoneNumber"></td>
+                    <td ng-bind="::owner.city"></td>
+                    <td ng-bind="::owner.country"></td>                    
                     <td>
-                        <button class="btn" ng-click="ownerListCtrl.addOrUpdate(property.id)"><i class="fa fa-edit"></i></button>
+                        <button class="btn" ng-click="ownerListCtrl.addOrUpdate(owner.id)"><i class="fa fa-edit"></i></button>
                     </td>
                 </tr>
                 </tbody>
