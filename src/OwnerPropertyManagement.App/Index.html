@@ -8,6 +8,7 @@
     <base href="/">
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/Content/style.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -15,10 +16,11 @@
 
 </head>
 <body ng-controller="indexController as indexCtrl">
-    <header class="navbar" style="background-color:#0085ad; border-radius: 0;">
+    <toaster-container toaster-options="{'time-out': 3000, 'position-class': 'toast-top-full-width'}"></toaster-container>
+    <header class="navbar" style="background-color:#34cceb; border-radius: 0;">
         <div class="navbar-collapse collapse">
             <div class="navbar-header">
-                <h1 ng-click="indexCtrl.goHome()">Owner Property Management
+                <h1 ng-click="indexCtrl.goHome()" style="color:whitesmoke">Owner Property Management
                 </h1>                
             </div>
             <ul class="nav navbar-nav navbar-right" ng-show="indexCtrl.isAuth()">            
@@ -50,8 +52,12 @@
     <script src="Scripts/angular-sanitize.min.js"></script>
     <script src="Scripts/angular-ui/ui-bootstrap.min.js"></script>
     <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
-    <!--Angular Toaster-->
-    <!--Angular loading-->
+    <!-- AngularJS-Toaster -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.1.0/toaster.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.1.0/toaster.min.js"></script>
+    <!-- Loading-bar -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.js"></script>
     <!--Angular Aplication Utilities-->
     <!--Angular App-->
     <script src="App/ownerPropertyManagementConfig.js"></script>

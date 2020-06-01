@@ -6,7 +6,8 @@ angular
     'masterTablesService',
     'id',
     "$uibModalInstance",
-    function ($scope, propertyService, masterTablesService, id, $uibModalInstance) {
+    "toaster",
+    function ($scope, propertyService, masterTablesService, id, $uibModalInstance,toaster) {
       var vm = this;
       vm.id = id;
       vm.property = {};
@@ -58,7 +59,8 @@ angular
           propertyService.add(vm.property).then(function (response) {
             vm.property = response;
             vm.currentModel = angular.copy(response);
-            $uibModalInstance.close();
+            toaster.pop("success", "Property created successfully");
+            $uibModalInstance.close();            
           }, function (errors) {
               vm.errors = errors;
           });
@@ -66,6 +68,7 @@ angular
         propertyService.update(vm.property).then(function (response) {
               vm.property = response;
               vm.currentModel = angular.copy(response);
+              toaster.pop("success", "Property updated successfully");
               $uibModalInstance.close();
           }, function (errors) {
               vm.errors = errors;

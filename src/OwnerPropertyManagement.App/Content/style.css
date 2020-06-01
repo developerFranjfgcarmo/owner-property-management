@@ -1,0 +1,13 @@
+#loading-bar .bar {
+    background: white !important;
+    height: 5px !important;
+    /*position: relative !important;*/
+}
+#loading-bar-spinner .spinner-icon {
+    width: 24px !important;
+    height: 24px !important;
+    border: solid 4px transparent !important;
+    border-top-color: white !important;
+    border-left-color: white !important;
+    border-radius: 10px !important;
+}

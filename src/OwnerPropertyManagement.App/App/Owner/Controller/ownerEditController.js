@@ -5,7 +5,8 @@ angular
     'ownerService',
     'id',
     "$uibModalInstance",
-    function ($scope, ownerService, id, $uibModalInstance) {
+    "toaster",
+    function ($scope, ownerService, id, $uibModalInstance,toaster) {
       var vm = this;
       vm.id = id;
       vm.owner = {};      
@@ -49,6 +50,7 @@ angular
           ownerService.add(vm.owner).then(function (response) {
             vm.owner = response;
             vm.currentModel = angular.copy(response);
+            toaster.pop("success", "Owner created successfully");
             $uibModalInstance.close();
           }, function (errors) {
               vm.errors = errors;
@@ -57,6 +59,7 @@ angular
         ownerService.update(vm.owner).then(function (response) {
               vm.owner = response;
               vm.currentModel = angular.copy(response);
+              toaster.pop("success", "Owner updated successfully");
               $uibModalInstance.close();
           }, function (errors) {
               vm.errors = errors;

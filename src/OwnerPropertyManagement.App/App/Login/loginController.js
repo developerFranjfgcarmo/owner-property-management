@@ -3,7 +3,8 @@ angular.module('ownerPropertyManagementApp').controller('loginController', [
   '$state',
   'authService',
   'localStorageService',
-  function ($scope, $state, authService, localStorageService) {
+  "toaster",
+  function ($scope, $state, authService, localStorageService,toaster) {
     var vm = this
     vm.user = { username: '', password: '' }
     vm.error = ''
@@ -22,7 +23,7 @@ angular.module('ownerPropertyManagementApp').controller('loginController', [
           $state.go('home')
         },
         function (e) {
-          vm.error = 'User or password incorrect.'
+          toaster.pop("warning", "User or password incorrect.");          
         }
       )
     }

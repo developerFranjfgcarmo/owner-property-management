@@ -5,7 +5,9 @@ angular.module('ownerPropertyManagementApp', [
   'ngSanitize',
   'ui.bootstrap',
   'ngAnimate',
-  'LocalStorageModule'
+  'LocalStorageModule',
+  "toaster",
+  "angular-loading-bar"
 ])
 angular
   .module('ownerPropertyManagementApp')
@@ -61,6 +63,9 @@ angular
             var $state = $injector.get('$state')
             $state.go('login')
           }
+          if (rejection.status === 500) {
+            toaster.pop("error", "Error", "Internal Server Error");
+          }
           return $q.reject(rejection)
         }
       }
@@ -73,3 +78,8 @@ angular
       $httpProvider.interceptors.push('authHttpResponseInterceptor')
     }
   ])
+  angular.module("ownerPropertyManagementApp").config(function (cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeBar = true;
+    cfpLoadingBarProvider.includeSpinner = true;
+    cfpLoadingBarProvider.latencyThreshold = 200;
+});
