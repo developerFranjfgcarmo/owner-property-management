@@ -2,7 +2,7 @@
     return {
         restrict: "E",
         replace: true,
-        require: "^form",
+        require: "^?form",
         scope: {
             model: "=fieldModel",
             type: "@fieldType",
@@ -51,9 +51,12 @@
             var inputNgEl = angular.element(inputEl);
             // property name
             var inputName = scope.name;
-            formCtrl.$setPristine = function () {
-                $('form[name="' + formCtrl.$name + '"]').find("div.form-group").removeClass("has-error");
-            };
+            if(formCtrl){
+                formCtrl.$setPristine = function () {
+                    $('form[name="' + formCtrl.$name + '"]').find("div.form-group").removeClass("has-error");
+                }; 
+            }
+          
 
             // only apply the has-error class after the user leaves the text box
             inputNgEl.bind("blur", function () {

@@ -4,6 +4,6 @@
     <!-- <select class="form-control" ng-model="model" data-ng-required="{{required}}">
         <option ng-repeat="option in options" value="{{option.id}}">{{option.name}}</option>   
     </select> -->
-    <select class="form-control" data-ng-required="{{required}}" ng-model="model" ng-options="option as option.name for option in options track by model"></select>
+    <select class="form-control" data-ng-required="{{required}}" ng-model="model" ng-options="option.id as option.name for option in options"></select>
 
 </div>
