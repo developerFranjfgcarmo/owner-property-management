@@ -10,6 +10,7 @@ angular
       vm.id = id;
       vm.owner = {};      
       vm.currentModel = {};
+      vm.errors=undefined;
 
       vm.get = get;
       vm.dismiss = dismiss;

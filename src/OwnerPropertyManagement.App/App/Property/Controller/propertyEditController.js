@@ -14,7 +14,7 @@ angular
       vm.towns = [];
       vm.owners = [];
       vm.currentModel = {};
-
+      vm.errors=undefined;
       vm.get = get;
       vm.dismiss = dismiss;
       vm.modelIsValid = modelIsValid; 
@@ -42,10 +42,7 @@ angular
           function (response) {
             vm.property = response;
             vm.currentModel = angular.copy(response);
-          }/* ,
-          function (error) {
-            //todo:show the error
-          } */
+          }
         )
       }    
 

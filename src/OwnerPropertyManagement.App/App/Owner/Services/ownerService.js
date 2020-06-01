@@ -55,7 +55,7 @@ angular.module('ownerPropertyManagementApp').factory('ownerService', [
             deferred.resolve(response.data)
           },
           function (response) {
-            deferred.reject(response.data)
+            deferred.reject(response.data.errors)
           }
         );
         return deferred.promise;
@@ -72,7 +72,7 @@ angular.module('ownerPropertyManagementApp').factory('ownerService', [
             deferred.resolve(response.data)
           },
           function (response) {
-            deferred.reject(response.data)
+            deferred.reject(response.data.errors)
           }
         );
         return deferred.promise;
