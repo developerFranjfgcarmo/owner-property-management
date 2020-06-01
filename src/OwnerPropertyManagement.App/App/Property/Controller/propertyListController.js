@@ -10,7 +10,7 @@ angular.module('ownerPropertyManagementApp').controller('propertyListController'
     vm.total = 0;
     vm.ownerId=null;
     vm.owners = [];
-    vm.filter = { take: 5, page: 1 };
+    vm.filter = { take: 5, page: 0 };
     vm.attributes = [      
       { displayName: 'Property', attribute: 'name' },
       { displayName: 'Owner', attribute: 'owner' },

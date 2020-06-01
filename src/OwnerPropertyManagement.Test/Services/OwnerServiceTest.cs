@@ -22,7 +22,7 @@ namespace OwnerPropertyManagement.Test.Services
         public async void Owners_Paged_from_1_to_5()
         {
             var ownerDomain = new OwnerDomain(_fixture.GetDbContext());
-            var filter = new PagedFilter{ Page = 1, Take = 5 };
+            var filter = new PagedFilter{ Page = 0, Take = 5 };
             var result = await ownerDomain.GetAllAsync(filter);
             Assert.True(result.Items.FirstOrDefault()?.Id == 1);
             Assert.True(result.Total == 10);
@@ -31,7 +31,7 @@ namespace OwnerPropertyManagement.Test.Services
         public async void Owners_Paged_from_6_to_10()
         {
             var ownerDomain = new OwnerDomain(_fixture.GetDbContext());
-            var filter = new PagedFilter { Page = 2, Take = 5 };
+            var filter = new PagedFilter { Page = 1, Take = 5 };
             var result = await ownerDomain.GetAllAsync(filter);
             Assert.True(result.Items.FirstOrDefault()?.Id == 6);
             Assert.True(result.Total == 10);

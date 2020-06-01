@@ -22,7 +22,7 @@ namespace OwnerPropertyManagement.Test.Domains
         public async void Property_Paged_from_1_to_5()
         {
             var propertyDomain = new PropertyDomain(  _fixture.GetDbContext());
-            var propertyFilter = new PropertyFilter{ Page = 1,Take = 5};
+            var propertyFilter = new PropertyFilter{ Page = 0,Take = 5};
             var result = await propertyDomain.GetAllAsync(propertyFilter);
             Assert.True(result.Items.FirstOrDefault()?.Id == 1);
             Assert.True(result.Total == 10);
@@ -31,7 +31,7 @@ namespace OwnerPropertyManagement.Test.Domains
         public async void Property_Paged_from_6_to_10()
         {
             var propertyDomain = new PropertyDomain( _fixture.GetDbContext());
-            var propertyFilter = new PropertyFilter { Page = 2, Take = 5 };
+            var propertyFilter = new PropertyFilter { Page = 1, Take = 5 };
             var result = await propertyDomain.GetAllAsync(propertyFilter);
             Assert.True(result.Items.FirstOrDefault()?.Id==6);
             Assert.True(result.Total == 10);
@@ -40,7 +40,7 @@ namespace OwnerPropertyManagement.Test.Domains
         public async void Property_Paged_from_1_to_5_with_ownerId()
         {
             var propertyDomain = new PropertyDomain(_fixture.GetDbContext());
-            var propertyFilter = new PropertyFilter { Page = 1, Take = 5,OwnerId = 1};
+            var propertyFilter = new PropertyFilter { Page = 0, Take = 5,OwnerId = 1};
             var result = await propertyDomain.GetAllAsync(propertyFilter);
             Assert.True(result.Items.FirstOrDefault()?.Id == 1);
             Assert.True(result.Total == 6);

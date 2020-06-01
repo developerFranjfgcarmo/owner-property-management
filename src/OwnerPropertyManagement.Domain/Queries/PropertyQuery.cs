@@ -10,7 +10,7 @@
                           Zone AS z ON z.Id = t.ZoneId
                             {0}
                         ) Properties
-						  WHERE rn >  @Take * (@Page - 1) AND rn <= (@Page * @Take)
+						  WHERE rn >  @Take * @Page AND rn <= ((@Page +1)* @Take)
          ;
  
         SELECT count(p.Id)
