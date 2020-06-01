@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using OwnerPropertyManagement.Data.Context;
 using OwnerPropertyManagement.Data.Entities;
 using OwnerPropertyManagement.Domain.Dtos;
+using OwnerPropertyManagement.Domain.Dtos.Filter;
 using OwnerPropertyManagement.Domain.IDomain;
 using OwnerPropertyManagement.Domain.Mapper;
 
@@ -39,10 +40,13 @@ namespace OwnerPropertyManagement.Domain.Domain
             return await SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<OwnerDto>> GetAllAsync()
+        public async Task<PagedCollection<OwnerDto>> GetAllAsync(PagedFilter filter)
         {
-            var result =await OwnerPropertyDbContext.Owners.AsNoTracking().ToListAsync();
-            return result.MapTo<IEnumerable<OwnerDto>>();
+            var result = new PagedCollection<OwnerDto>();
+            var owners =await OwnerPropertyDbContext.Owners.AsNoTracking().Skip(filter.Page-1).Take(filter.Take).ToListAsync();
+            result.Items = owners.MapTo<IEnumerable<OwnerDto>>().ToList();
+            result.Total = await OwnerPropertyDbContext.Owners.CountAsync();
+            return result;
         }
 
         public async Task<OwnerDto> GetByIdAsync(int id)
