@@ -14,6 +14,7 @@ namespace OwnerPropertyManagement.Test.Domains
         public PropertyDomainTest(DatabaseFixture fixture)
         {
             _fixture = fixture;
+            OwnerMock.Instance().AddOwners(_fixture);
             PropertyMock.Instance().AddProperties(_fixture);
         }
 

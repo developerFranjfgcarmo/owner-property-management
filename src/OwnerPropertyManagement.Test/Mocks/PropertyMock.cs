@@ -5,7 +5,7 @@ namespace OwnerPropertyManagement.Test.Mocks
 {
     public class PropertyMock
     {
-        private static PropertyMock _doctorMock;
+        private static PropertyMock _propertyMock;
 
         private PropertyMock()
         {
@@ -13,18 +13,13 @@ namespace OwnerPropertyManagement.Test.Mocks
 
         public static PropertyMock Instance()
         {
-            return _doctorMock ??= new PropertyMock();
+            return _propertyMock ??= new PropertyMock();
         }
 
         public void AddProperties(DatabaseFixture fixture)
         {
             var context = fixture.GetDbContext();
 
-            var owners = new List<Owner>
-            {
-                new Owner { Id = 1, FirstName = "Francisco", Surname = "Fernández"},
-                new Owner { Id = 2, FirstName = "Juan Alberto", Surname = "Ramos"}
-            };
             var properties = new List<Property>
             {
                 new Property { Id = 1, Name = "Villa Bonita",TownId =1, DistanceAirport=15,DistanceBeach=18,Active= true, OwnerId = 1},
@@ -38,7 +33,6 @@ namespace OwnerPropertyManagement.Test.Mocks
                 new Property { Id = 9, Name = "Villa Bonita 8",TownId =2, DistanceAirport=15,DistanceBeach=18,Active= true, OwnerId = 1},
                 new Property { Id = 10, Name = "Villa Bonita 9",TownId =3, DistanceAirport=15,DistanceBeach=18,Active= true, OwnerId = 2},
             };
-            context.Owners.AddRange(owners);
             context.Properties.AddRange(properties);
             context.SaveChanges();
 
