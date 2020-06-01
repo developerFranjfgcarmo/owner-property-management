@@ -14,7 +14,7 @@ namespace OwnerPropertyManagement.Api.Validator
             RuleFor(r => r.OwnerId).NotEmpty().WithMessage("The owner is required");
             RuleFor(r => r.Name).NotEmpty().WithMessage("The name is required");
             RuleFor(r => r.TownId).NotEqual(0).WithMessage("The town is required");
-            RuleFor(r => r.Facilities).Must(m=>!m.Any()).WithMessage("You must select some facility");
+            RuleFor(r => r.Facilities).Must(m=>m.Any()).WithMessage("You must select some facility");
         }
     }
 }
