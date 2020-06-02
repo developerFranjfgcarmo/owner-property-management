@@ -4,14 +4,15 @@ angular.module('ownerPropertyManagementApp').controller('propertyListController'
   'propertyService',
   '$uibModal',
   'masterTablesService',
-  function ($scope, $state, propertyService, $uibModal, masterTablesService) {
+  'toaster',
+  function ($scope, $state, propertyService, $uibModal, masterTablesService,toaster) {
     const vm = this;
     vm.properties = [];
     vm.total = 0;
-    vm.ownerId=null;
+    vm.ownerId = null;
     vm.owners = [];
     vm.filter = { take: 5, page: 0 };
-    vm.attributes = [      
+    vm.attributes = [
       { displayName: 'Property', attribute: 'name' },
       { displayName: 'Owner', attribute: 'owner' },
       { displayName: 'Town', attribute: 'town' },
@@ -19,21 +20,22 @@ angular.module('ownerPropertyManagementApp').controller('propertyListController'
       { displayName: 'DistanceAirport', attribute: 'distanceAirport' },
       { displayName: 'DistanceBeach', attribute: 'distanceBeach' },
       { displayName: 'active', attribute: 'active' },
-      { displayName: 'Edit', attribute: 'action' }
+      { displayName: 'Actions', attribute: 'action' }
     ];
     vm.getAll = getAll;
     vm.addOrUpdate = addOrUpdate;
+    vm.remove=remove;
 
     init()
 
-    function init () {
+    function init() {
       masterTablesService.getOwnerNameList().then(function (res) {
         vm.owners = res;
       })
       getAll();
     }
 
-    function getAll () {
+    function getAll() {
       propertyService.getAll(vm.filter).then(
         function (response) {
           vm.properties = response.items;
@@ -48,26 +50,38 @@ angular.module('ownerPropertyManagementApp').controller('propertyListController'
         }
       )
     }
-    function addOrUpdate(id){
+    function addOrUpdate(id) {
       $uibModal.open({
         templateUrl: "/App/Property/Views/propertyEdit.html",
         controller: "propertyEditController",
         replace: true,
-        controllerAs: "propertyEditCtrl",           
-        resolve: {            
-            propertyService: function() {
-              return propertyService;
+        controllerAs: "propertyEditCtrl",
+        resolve: {
+          propertyService: function () {
+            return propertyService;
           },
-          masterTablesService: function() {
-              return masterTablesService;
+          masterTablesService: function () {
+            return masterTablesService;
           },
           id: function () {
             return id;
-        }
-        },        
-    }).result.then(function() {
+          }
+        },
+      }).result.then(function () {
         getAll();
-    });
+      });
+    }
+
+    function remove(id) {
+      if (vm.id !== 0) {
+        propertyService.remove(id).then(function (response) {
+          vm.filter.page=0;
+          vm.getAll();
+          toaster.pop("success", "Property removed successfully");          
+        }, function (errors) {
+          toaster.pop("error", "Property could not be removed");
+        });
+      }
     }
   }
 ])

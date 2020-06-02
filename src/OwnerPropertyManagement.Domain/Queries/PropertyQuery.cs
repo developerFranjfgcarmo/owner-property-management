@@ -21,6 +21,6 @@
         {0} 
         ";
 
-        public static string GetAllWhere = @" WHERE p.OwnerId=@OwnerId";
+        public static string GetAllWhere = @" WHERE p.OwnerId=@OwnerId AND p.IsDeleted=0";
     }
 }

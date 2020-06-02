@@ -43,9 +43,9 @@ namespace OwnerPropertyManagement.Domain.Domain
         public async Task<PagedCollection<OwnerDto>> GetAllAsync(PagedFilter filter)
         {
             var result = new PagedCollection<OwnerDto>();
-            var owners =await OwnerPropertyDbContext.Owners.AsNoTracking().Skip(filter.Page * filter.Take).Take(filter.Take).ToListAsync();
+            var owners =await OwnerPropertyDbContext.Owners.AsNoTracking().Where(w=>!w.IsDeleted).Skip(filter.Page * filter.Take).Take(filter.Take).ToListAsync();
             result.Items = owners.MapTo<IEnumerable<OwnerDto>>().ToList();
-            result.Total = await OwnerPropertyDbContext.Owners.CountAsync();
+            result.Total = await OwnerPropertyDbContext.Owners.CountAsync(w => !w.IsDeleted);
             return result;
         }
 

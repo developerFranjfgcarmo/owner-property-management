@@ -69,8 +69,9 @@ angular.module('ownerPropertyManagementApp').controller('ownerListController', [
     function remove(id) {
       if (vm.id !== 0) {
         ownerService.remove(id).then(function (response) {
-          toaster.pop("success", "Owner removed successfully");
-          $uibModalInstance.close();
+          vm.filter.page=0;
+          vm.getAll();
+          toaster.pop("success", "Owner removed successfully");          
         }, function (errors) {
           if(!errors){
             errors="Owner could not be removed";
