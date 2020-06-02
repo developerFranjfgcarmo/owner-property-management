@@ -28,6 +28,7 @@ Asp.Net core:
 - Xunit
 - FluentValidation
 - Sqlite.
+- Swagger. End points: https://localhost:44311/swagger/index.html
 
 Angular:
 - ui-bootstrap
