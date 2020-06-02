@@ -7,10 +7,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using OwnerPropertyManagement.Api.Extensions;
 using OwnerPropertyManagement.Api.Filters;
 using OwnerPropertyManagement.Api.Middleware;
-
+using Swashbuckle.AspNetCore;
 namespace OwnerPropertyManagement.Api
 {
     public class Startup
@@ -33,9 +34,11 @@ namespace OwnerPropertyManagement.Api
                 .AddFluentValidation(mvcConfiguration =>
                     mvcConfiguration.RegisterValidatorsFromAssemblyContaining<Startup>())
                 .AddNewtonsoftJson();
-            //services
-            //    .AddControllers()
-            //    .AddNewtonsoftJson();
+            services.AddSwaggerGen(s =>
+            {
+                s.SwaggerDoc("v1", new OpenApiInfo {Title = "Owner properties", Version = "v1"});
+            });
+                
 
             services.AddCorsPolicies(PolicyOrigingAllowed);
 
@@ -50,6 +53,11 @@ namespace OwnerPropertyManagement.Api
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("v1/swagger.json", "Owner Properties V1");
+            });
             app.UseCustomExceptionMiddleware();
             app.UseRouting();
             // global cors policy
