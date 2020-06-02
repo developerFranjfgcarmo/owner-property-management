@@ -11,5 +11,6 @@ namespace OwnerPropertyManagement.Domain.IDomain
         Task<bool> DeleteAsync(int id);
         Task<PagedCollection<PropertyListDto>> GetAllAsync(PropertyFilter propertyFilter);
         Task<PropertyDto> GetByIdAsync(int id);
+        Task<bool> HasPropertiesAsync(int ownerId);
     }
 }

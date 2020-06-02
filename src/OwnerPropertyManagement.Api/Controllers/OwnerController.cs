@@ -14,10 +14,12 @@ namespace OwnerPropertyManagement.Api.Controllers
     public class OwnerController : ControllerBase
     {
         private readonly IOwnerDomain _ownerDomain;
+        private readonly IPropertyDomain _propertyDomain;
 
-        public OwnerController(IOwnerDomain ownerDomain)
+        public OwnerController(IOwnerDomain ownerDomain, IPropertyDomain propertyDomain)
         {
             _ownerDomain = ownerDomain;
+            _propertyDomain = propertyDomain;
         }
 
         [HttpPost]
@@ -61,6 +63,7 @@ namespace OwnerPropertyManagement.Api.Controllers
         [Route("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
+            if (await _propertyDomain.HasPropertiesAsync(id)) return Conflict("Owner has active properties.");
             var result = await _ownerDomain.DeleteAsync(id);
             return result ? (IActionResult) Ok(true) : NotFound();
         }

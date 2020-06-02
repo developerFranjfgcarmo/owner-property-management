@@ -73,6 +73,12 @@ namespace OwnerPropertyManagement.Domain.Domain
             var property = (await GetEntityByIdAsync(id));
             return property.MapTo<PropertyDto>();
         }
+
+        public async Task<bool> HasPropertiesAsync(int ownerId)
+        {
+           return await OwnerPropertyDbContext.Properties.AnyAsync(c => c.OwnerId == ownerId && !c.IsDeleted);
+        }
+
         private async Task<Property> GetEntityByIdAsync(int id)
         {
             return await OwnerPropertyDbContext.Properties.Include(i=>i.PropertyFacilities).FirstOrDefaultAsync(w => w.Id == id && !w.IsDeleted);
