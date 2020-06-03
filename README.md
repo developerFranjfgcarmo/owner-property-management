@@ -12,22 +12,27 @@ fullstack-owner-property-management
 └── OwnerPropertyManagement.Test --> Test
 ```
 ## Getting started.
-1. Migrations. Set the project OwnerPropertyManagement.Data and run the command Updata-Database from Package Manager Console.
-2. AngularApp run with Visual Studio with the option View Browser or with visual studio code, pre-installing the extension live Server.
-3. Set the project OwnerPropertyManagement.Api and run the project.
-4. Users: admin/admin or user/user.
+1. Sql Server. The connectionstring is configured for a instance of local Sql Server:"" and with windows Authentication
+```
+"Server=.\\;Database=OwnerProperty;Trusted_Connection=True;"
+```
+These settings can be changed in the file: appsettings.json for the application to work and in the DesignTimeDbContextFactory  class for migrations to work too.
+2. Migrations. Set the project OwnerPropertyManagement.Data and run the command Updata-Database from Package Manager Console.
+3. AngularApp run with Visual Studio with the option View Browser or with visual studio code, pre-installing the extension live Server.
+4. Set the project OwnerPropertyManagement.Api and run the project.
+5. Users: admin/admin or user/user.
 
 ## How it work
 Asp.Net core:
 - CQRS.
 - JWT authentication using ASP.NET Core JWT Bearer Authentication.
-- SeriLog
+- SeriLog.
 - Automapper.
 - Entity Framework Core.
-- Dapper
+- Dapper. Micro Orm, it used for complex queries
 - Xunit
-- FluentValidation
-- Sqlite.
+- FluentValidation. Api contract validation
+- Sqlite.To test EF core.
 - Swagger. End points: https://localhost:44311/swagger/index.html
 
 Angular:
