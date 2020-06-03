@@ -16,7 +16,9 @@ fullstack-owner-property-management
 ```
 "Server=.\\;Database=OwnerProperty;Trusted_Connection=True;"
 ```
+
 These settings can be changed in the file: appsettings.json for the application to work and in the DesignTimeDbContextFactory  class for migrations to work too.
+
 2. Migrations. Set the project OwnerPropertyManagement.Data and run the command Updata-Database from Package Manager Console.
 3. AngularApp run with Visual Studio with the option View Browser or with visual studio code, pre-installing the extension live Server.
 4. Set the project OwnerPropertyManagement.Api and run the project.
